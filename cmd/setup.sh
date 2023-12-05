@@ -4,9 +4,9 @@ do_setup() {
     idx=$1
     mkdir -p conf data bin
     DATA_DIR="$PWD/data"
-    cp "$HOMIOUTPUT/scripts/genesis.json" "$DATA_DIR/"
-    cp "$HOMIOUTPUT/scripts/static-nodes.json" "$DATA_DIR/"
-    cp `which kcn` "$ROOTDIR/kcnd" bin/
+    ln -s "$HOMIOUTPUT/scripts/genesis.json" "$DATA_DIR/"
+    ln -s "$HOMIOUTPUT/scripts/static-nodes.json" "$DATA_DIR/"
+    ln -s `which kcn` "$ROOTDIR/kcnd" bin/
     KEY="$HOMIOUTPUT/keys/validator$idx"
     kcn --datadir "$DATA_DIR" init "$DATA_DIR/genesis.json"
     echo NETWORK= >> conf/kcnd.conf
