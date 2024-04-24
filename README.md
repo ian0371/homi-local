@@ -9,7 +9,7 @@ brew install jq
 
 At first run:
 ```bash
-homi setup local --cn-num 4
+homi setup --gen-type local --cn-num 4
 ./run setup
 ./run start
 ```
