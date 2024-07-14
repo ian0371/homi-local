@@ -14,7 +14,12 @@ homi setup --gen-type local --cn-num 4
 ./run start
 ```
 
-Restart at binary update:
+Restart specific cn:
+```bash
+./run restart [CN_ID]
+```
+
+Refresh at binary update:
 ```bash
 ./run stop
 ./run clean
@@ -23,7 +28,7 @@ Restart at binary update:
 ```
 Or:
 ```bash
-./run restart
+./run refresh
 ```
 
 > :warning: only running kcn is supported
