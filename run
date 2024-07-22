@@ -9,8 +9,14 @@ if [ "$#" -lt 1 ]; then
     echo "  start"
     echo "  stop"
     echo "  clean"
-    echo "  restart"
+    echo "  restart [CN_ID]"
+    echo "  refresh"
     exit 22
+fi
+
+if [ "$1" == "restart" ] && [ "$#" -lt 2 ]; then
+    echo "Usage: $0 restart [CN_ID, 0 for all cn nodes]"
+    exit 1
 fi
 
 FN="cmd/$1.sh"
@@ -32,7 +38,10 @@ case "$1" in
     clean
     ;;
   "restart")
-    restart
+    restart $2
+    ;;
+  "refresh")
+    refresh
     ;;
   "upgrade")
     upgrade
